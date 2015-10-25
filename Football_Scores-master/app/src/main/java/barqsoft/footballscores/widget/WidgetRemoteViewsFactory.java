@@ -18,9 +18,6 @@ import barqsoft.footballscores.DatabaseContract;
 import barqsoft.footballscores.R;
 import barqsoft.footballscores.Utilies;
 
-/**
- * Created by Kevin on 23.10.2015.
- */
 public class WidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory
 {
     private Context context = null;
@@ -74,19 +71,9 @@ public class WidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
             matchItem.add(3, mCursor.getString(5));
             matchItem.add(4, mCursor.getString(1));
 
-            Log.i("widget", mCursor.getString(0));
-            Log.i("widget", mCursor.getString(2) + " vs " + mCursor.getString(3));
-//                    RemoteViews neview = new RemoteViews(getPackageName(), R.layout.widget_row_layout);
-//                    neview.setTextViewText(R.id.textView, mCursor.getString(2));
-//                    neview.setTextViewText(R.id.textView2, mCursor.getString(3));
-//                    views.addView(R.id.widget_score_list, neview);
             scoresItem.add(matchItem);
         }
 
-
-
-//        List<String> convertedToList = new ArrayList<String>(Arrays.asList(widgetFruitsArray));
-//        this.widgetList = convertedToList;
         this.widgetList = scoresItem;
     }
 
@@ -112,7 +99,6 @@ public class WidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
     @Override
     public RemoteViews getViewAt(int position)
     {
-        Log.d("WidgetCreatingView", "WidgetCreatingView");
         RemoteViews remoteView = new RemoteViews(context.getPackageName(),
                 R.layout.widget_row_layout);
 
@@ -135,37 +121,31 @@ public class WidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
     @Override
     public int getViewTypeCount()
     {
-        // TODO Auto-generated method stub
         return 1;
     }
 
     @Override
     public boolean hasStableIds()
     {
-        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public void onCreate()
     {
-        // TODO Auto-generated method stub
         updateWidgetListView();
     }
 
     @Override
     public void onDataSetChanged()
     {
-        // TODO Auto-generated method stub
         updateWidgetListView();
     }
 
     @Override
     public void onDestroy()
     {
-        // TODO Auto-generated method stub
         widgetList.clear();
-//        dbhelper.close();
     }
 
     private String[] getDate() {

@@ -76,8 +76,8 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
             public void afterTextChanged(Editable s) {
                 String ean =s.toString();
                 //catch isbn10 numbers
-                if(ean.length()==10 && !ean.startsWith("978")){
-                    ean="978"+ean;
+                if(ean.length()==10 && !ean.startsWith(getString(R.string.ean_start))){
+                    ean=getString(R.string.ean_start)+ean;
                 }
                 if(ean.length()<13){
                     clearFields();
@@ -140,8 +140,8 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
             return null;
         }
         String eanStr= ean.getText().toString();
-        if(eanStr.length()==10 && !eanStr.startsWith("978")){
-            eanStr="978"+eanStr;
+        if(eanStr.length()==10 && !eanStr.startsWith(getString(R.string.ean_start))){
+            eanStr=getString(R.string.ean_start)+eanStr;
         }
         return new CursorLoader(
                 getActivity(),
@@ -208,7 +208,7 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
 
         if (requestCode == SCAN_REQUEST) {
             if(resultCode == Activity.RESULT_OK){
-                ean.setText(data.getStringExtra("Barcode"));
+                ean.setText(data.getStringExtra(getString(R.string.scan_extra)));
             }
         }
     }

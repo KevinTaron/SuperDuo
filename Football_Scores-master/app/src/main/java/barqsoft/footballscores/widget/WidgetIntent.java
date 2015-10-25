@@ -17,9 +17,6 @@ import barqsoft.footballscores.DatabaseContract;
 import barqsoft.footballscores.R;
 import barqsoft.footballscores.Utilies;
 
-/**
- * Created by Kevin on 23.10.2015.
- */
 public class WidgetIntent extends IntentService {
 
     public WidgetIntent() {
@@ -28,7 +25,6 @@ public class WidgetIntent extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Log.i("widget", "handle intent");
 
         // Retrieve all of the widget ids: these are the widgets we need to update
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
@@ -37,7 +33,7 @@ public class WidgetIntent extends IntentService {
         // get todays games from the content provider
         for (int appWidgetId : appWidgetIds) {
             RemoteViews views = new RemoteViews(getPackageName(), R.layout.widget_layout);
-            views.setTextViewText(R.id.widget_title, "Today");
+            views.setTextViewText(R.id.widget_title, getString(R.string.widget_title));
             Intent mIntent = new Intent(this, WidgetService.class);
             mIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
             mIntent.setData((Uri.parse(mIntent.toUri(Intent.URI_INTENT_SCHEME))));

@@ -10,6 +10,7 @@ import com.google.zxing.Result;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.jaschke.alexandria.R;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 
@@ -43,7 +44,7 @@ public class ScannerActivity extends Activity implements ZXingScannerView.Result
     @Override
     public void handleResult(Result result) {
         Intent resultIntent = new Intent();
-        resultIntent.putExtra("Barcode", result.getText());
+        resultIntent.putExtra(getString(R.string.scan_extra), result.getText());
         setResult(RESULT_OK, resultIntent);
         finish();
     }
