@@ -104,10 +104,10 @@ public class WidgetRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
 
         List<String> matchItem = widgetList.get(position);
 
-        remoteView.setTextViewText(R.id.home_name, matchItem.get(0));
-        remoteView.setTextViewText(R.id.away_name, matchItem.get(1));
-        remoteView.setTextViewText(R.id.score_textview, Utilies.getScores(Integer.getInteger(matchItem.get(2), -1), Integer.getInteger(matchItem.get(3), -1)));
-        remoteView.setTextViewText(R.id.data_textview, matchItem.get(4));
+        remoteView.setTextViewText(R.id.home_name_widget, matchItem.get(0));
+        remoteView.setTextViewText(R.id.away_name_widget, matchItem.get(1));
+        remoteView.setTextViewText(R.id.score_textview_widget, Utilies.getScores(Integer.getInteger(matchItem.get(2), -1), Integer.getInteger(matchItem.get(3), -1)));
+        remoteView.setTextViewText(R.id.data_textview_widget, matchItem.get(4));
 
 
 

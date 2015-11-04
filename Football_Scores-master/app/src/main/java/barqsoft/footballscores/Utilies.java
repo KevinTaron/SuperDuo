@@ -14,12 +14,12 @@ public class Utilies
     {
         switch (league_num)
         {
-            case SERIE_A : return "Seria A";
-            case PREMIER_LEGAUE : return "Premier League";
-            case CHAMPIONS_LEAGUE : return "UEFA Champions League";
-            case PRIMERA_DIVISION : return "Primera Division";
-            case BUNDESLIGA : return "Bundesliga";
-            default: return "Not known League Please report";
+            case SERIE_A : return String.valueOf(R.string.seriaa);
+            case PREMIER_LEGAUE : return String.valueOf(R.string.premierleague);
+            case CHAMPIONS_LEAGUE : return String.valueOf(R.string.champions_league);
+            case PRIMERA_DIVISION : return String.valueOf(R.string.primeradivison);
+            case BUNDESLIGA : return String.valueOf(R.string.bundesliga);
+            default: return String.valueOf(R.string.unknown_league);
         }
     }
     public static String getMatchDay(int match_day,int league_num)
@@ -28,28 +28,28 @@ public class Utilies
         {
             if (match_day <= 6)
             {
-                return "Group Stages, Matchday : 6";
+                return String.valueOf(R.string.champ_group);
             }
             else if(match_day == 7 || match_day == 8)
             {
-                return "First Knockout round";
+                return String.valueOf(R.string.champ_firstround);
             }
             else if(match_day == 9 || match_day == 10)
             {
-                return "QuarterFinal";
+                return String.valueOf(R.string.champ_qfinal);
             }
             else if(match_day == 11 || match_day == 12)
             {
-                return "SemiFinal";
+                return String.valueOf(R.string.champ_sfinal);
             }
             else
             {
-                return "Final";
+                return String.valueOf(R.string.champ_final);
             }
         }
         else
         {
-            return "Matchday : " + String.valueOf(match_day);
+            return String.valueOf(R.string.league_matchday) + String.valueOf(match_day);
         }
     }
 
