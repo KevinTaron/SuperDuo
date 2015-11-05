@@ -6,9 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
-
-import barqsoft.footballscores.service.myFetchService;
 
 public class WidgetProvider extends AppWidgetProvider {
 
